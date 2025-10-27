@@ -1,3 +1,14 @@
+# OCCUproject
+
+## Summary:
+This is a simple .NET MVC site created for the OCCU Senior Software Developer project.
+
+A set of 37 status values (each with an associated status of fail, warn, or pass) are randomly generated and displayed on the "StatusValues" page.
+
+A dataset of four text fields and a timestamp field is included, consisting of character data from the classic television series "Star Trek".
+The "Index" page lists this data, includes search functionality, and links to pages to perform CRUD operations on the dataset.
+
+## Instructions:
 The easiest way to run this website is within the Visual Studio IDE. The exercise is a single solution, 'MVCexercise.sln', created with Visual Studio 2022 Community edition, which is freely available from Microsoft.
 
 The current solution configuration assumes access to the localdb instance of SQL Express installed with Visual Studio. If this appproach to run the site is taken, the database can be created by Entity Framework migrations from a console in Visual Studio, and sample data will be populated on the first run of the application.
