@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MvcExercise.Models.StatusValues>
+
+@{
+    ViewData["Title"] = "Status Values";
+}
+
+<h2>@ViewData["Title"] - at a glance</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th></th><th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @*TODO: Find a better way (CSS?) to split this into two paired columns*@
+        @for (int i=0; i < Model.Count(); i+=2)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayName(Model.ElementAt(i).StatusValue)
+                </td>
+                <td>
+                    @Html.DisplayName(Model.ElementAt(i).ID.ToString())
+                </td>
+                <td></td><td></td>
+                <td>
+                    @if(i+1 < Model.Count())
+                        @Html.DisplayName(Model.ElementAt(i+1).StatusValue)
+                </td>
+                <td>
+                    @if(i+1 < Model.Count())
+                        @Html.DisplayName(Model.ElementAt(i+1).ID.ToString())    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

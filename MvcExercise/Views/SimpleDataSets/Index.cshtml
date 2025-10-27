@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MvcExercise.Models.SimpleDataSet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="SimpleDataSets" asp-action="Index">
+    <p>
+        <table>
+            <tr>
+                <td width="15%">Search By:</td>
+                <td><input type="radio" name="searchBy" value="searchName" checked/></td><td width="10%">Name</td>
+                <td><input type="radio" name="searchBy" value="searchRank" /></td><td width="10%">Rank</td>
+                <td><input type="radio" name="searchBy" value="searchPosition"  /></td><td width="10%">Position</td>
+                <td><input type="radio" name="searchBy" value="searchPosting"  /></td><td width="10%">Posting</td>
+                <td><input type="text" name="SearchString" /></td>
+                <td><input type="submit" value="Search" /></td>
+            </tr>
+        </table>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rank)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateTimeStamp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rank)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Posting)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdateTimeStamp)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                        <a asp-action="Copy" asp-route-id="@item.ID">Copy</a> |
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+
